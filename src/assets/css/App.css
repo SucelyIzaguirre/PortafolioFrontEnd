@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'MediaSansExtendendBold';
+  src: url('../fonts/mediasans-bold.otf');
+}
+
+@font-face {
+  font-family: 'MediaSansExtendendLight';
+  src: url('../fonts/mediasans-light.otf');
+}
+
+body{
+  font-family: 'MediaSansExtendBold';
+}
