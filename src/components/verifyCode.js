@@ -11,8 +11,10 @@ const VerifyCode = ({ length = 4 }) => {
   const inputsRef = useRef([]);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
+  const [successReenviar, setSuccessReenviar] = useState("");
+  const [timeLeft, setTimeLeft] = useState(600);
   const navigate = useNavigate();
+
 
   useEffect(() => {
     setEmail(localStorage.getItem("email"));
@@ -33,7 +35,36 @@ const VerifyCode = ({ length = 4 }) => {
 
       return () => clearTimeout(timer);
     }
-  }, [error, success, navigate]);
+
+    if (successReenviar) {
+      const timer = setTimeout(() => {
+        setSuccessReenviar("");
+        window.location.reload(); // Refresca la página en lugar de redirigir
+      }, 3000); // 3 segundos antes de redirigir
+
+      return () => clearTimeout(timer);
+    }
+
+
+    if (timeLeft === 0) {
+        // El temporizador ha terminado
+        console.log("¡El tiempo se ha agotado!");
+        return;
+      }
+  
+      // Crear un intervalo que se ejecute cada 1 segundo
+      const intervalId = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+  
+      // Limpiar el intervalo al desmontar el componente o cuando cambie `timeLeft`
+      return () => clearInterval(intervalId);
+
+  }, [error, success, navigate, timeLeft, successReenviar]);
+
+   // Convertir los segundos a minutos y segundos
+   const minutes = Math.floor(timeLeft / 60);
+   const seconds = timeLeft % 60;
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -76,6 +107,29 @@ const VerifyCode = ({ length = 4 }) => {
     const nextIndex = digits.length < length ? digits.length : length - 1;
     inputsRef.current[nextIndex].focus();
   };
+
+  const handleReenviar = async (e) => {
+    e.preventDefault();
+    try {
+        const res = await axios.post("/forgot-password", {
+          email: email,
+        });
+        console.log(res.data);
+  
+        if (res.data) {
+          localStorage.setItem("email", email);
+          setSuccessReenviar(res.data.message);
+        } else {
+          setError("Respuesta inesperada del servidor");
+        }
+      } catch (err) {
+        if (err.res && err.res.data) {
+          setError(err.res.data.message || "Error al enviar el codigo de verificiacion");
+        } else {
+          setError("Error en la conexión con el servidor");
+        }
+      }
+}
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -125,7 +179,7 @@ const VerifyCode = ({ length = 4 }) => {
         </div>
         <form onSubmit={onSubmit}>
           <h2>
-            Se ha enviado un código de 4 dígitos a {email}, ingrésalo en los
+            Se ha enviado un código de 4 dígitos a <b>{email}</b>, ingrésalo en los
             siguientes campos
           </h2>
           <div className="contInputPrimary">
@@ -143,6 +197,10 @@ const VerifyCode = ({ length = 4 }) => {
               </div>
             ))}
           </div>
+          <div className="informationVerifyCode">
+          <li>El código expira en {minutes}:{seconds < 10 ? `0${seconds}` : seconds} </li>
+          <li>¿No recibiste el código? <button onClick={handleReenviar} className="btnReenviar">Reenviar</button></li>
+          </div>
           <div className="btnVerificar">
             <button type="submit">Verificar</button>
           </div>
@@ -150,6 +208,7 @@ const VerifyCode = ({ length = 4 }) => {
       </div>
       {error && <p className="modalError">{error}</p>}
       {success && <p className="modalSuccess">{success}</p>}
+      {successReenviar && <p className="modalSuccess">{successReenviar}</p>}
     </div>
   );
 };

@@ -1,20 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const history = useHistory();
+    const navigate = useNavigate();
+
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    history.push('/login');
+    localStorage.removeItem('email'); // Eliminar el email guardado
+    navigate('/login');
   };
 
   return (
     <nav>
       <ul>
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/manage-portfolios">Gestionar Portafolios</Link></li>
+        <li><Link to="/principal">Inicio</Link></li>
+        <li><Link to="/contentForm">Gestionar Contenido</Link></li>
         <li><button onClick={handleLogout}>Logout</button></li>
       </ul>
     </nav>

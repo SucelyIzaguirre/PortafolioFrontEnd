@@ -26,7 +26,7 @@ const Login = () => {
     if (success) {
       const timer = setTimeout(() => {
         setSuccess(null);
-        navigate("/contentForm"); // Redirige después de mostrar el mensaje de éxito
+        navigate("/principal"); // Redirige después de mostrar el mensaje de éxito
       }, 3000); // 3 segundos antes de redirigir
 
       return () => clearTimeout(timer);

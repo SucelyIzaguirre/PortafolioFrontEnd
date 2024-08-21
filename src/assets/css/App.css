@@ -140,6 +140,26 @@ body{
   grid-gap: 20px;
 }
 
+.contVerifyCode .contFormVerifyCode form .informationVerifyCode{
+  font-family: 'MontserratSemiBold';
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+}
+
+.contVerifyCode .contFormVerifyCode form .informationVerifyCode li{
+  list-style: none;
+}
+
+.contVerifyCode .contFormVerifyCode form .informationVerifyCode .btnReenviar{
+  background-color: transparent;
+  text-decoration: underline;
+  color: tomato;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
 .contLogin .contFormLogin form h1,
 .contRegister .contFormRegister form h1{
   font-family: 'MediaSansExtendendBold';

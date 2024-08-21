@@ -16,13 +16,6 @@ const ContentForm = ({ onSubmit, initialData = {} }) => {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('email'); // Eliminar el email guardado
-    navigate('/login');
-  };
-  
-
   return (
     <div>
     <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }}>
@@ -34,7 +27,6 @@ const ContentForm = ({ onSubmit, initialData = {} }) => {
       {type === 'blog' && <textarea name="body" value={body} onChange={onChange} placeholder="Contenido" />}
       <button type="submit">Guardar Contenido</button>
     </form>
-    <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
