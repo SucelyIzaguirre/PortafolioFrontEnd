@@ -1,17 +1,13 @@
 // components/Register.js
 import React, { useEffect, useState } from "react";
 import axios from "../axiosConfig";
-import PhotoRegister from "../assets/images/phot3.png";
+import PhotoRecuperar from "../assets/images/recuperar.png";
 import PhotoLogo from "../assets/images/behan.png";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-const Register = () => {
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -29,34 +25,32 @@ const Register = () => {
     }
 
     if (success) {
-      const timer = setTimeout(() => {
-        setSuccess(null);
-        navigate("/login"); // Redirige después de mostrar el mensaje de éxito
-      }, 3000); // 3 segundos antes de redirigir
-
-      return () => clearTimeout(timer);
-    }
+        const timer = setTimeout(() => {
+          setSuccess(null);
+          navigate("/verifyCode"); // Redirige después de mostrar el mensaje de éxito
+        }, 3000); // 3 segundos antes de redirigir
+  
+        return () => clearTimeout(timer);
+      }
   }, [error, success, navigate]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/register", {
-        name,
-        username,
+      const res = await axios.post("/forgot-password", {
         email,
-        password,
       });
       console.log(res.data);
 
       if (res.data) {
+        localStorage.setItem("email", email);
         setSuccess(res.data.message);
       } else {
         setError("Respuesta inesperada del servidor");
       }
     } catch (err) {
       if (err.res && err.res.data) {
-        setError(err.res.data.message || "Error al iniciar sesión");
+        setError(err.res.data.message || "Error al enviar el codigo de verificiacion");
       } else {
         setError("Error en la conexión con el servidor");
       }
@@ -69,7 +63,7 @@ const Register = () => {
         <IoMdArrowRoundBack className="iconBack"/> Inicio de Sesion
       </Link>
       <img
-        src={PhotoRegister}
+        src={PhotoRecuperar}
         className="imgRegister"
         alt="No se encontro la imagen"
       />
@@ -80,54 +74,23 @@ const Register = () => {
             className="imgLogo"
             alt="No se encontro la imagen"
           />
-          <h2>Photographer Portfolio</h2>
+          <h2>Restablecer Contrasenia</h2>
         </div>
         <form onSubmit={onSubmit}>
-          <h1>Registrate</h1>
+          <h2>Te enviaremos un correo con un codigo para que puedas restablecer tu contrasenia.</h2>
           <div className="contInputRegister">
-            <label>Nombre y Apellido</label>
+            <label>Correo electrónico</label>
             <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Nombre"
               required
             />
           </div>
-          <div className="contInputRegister">
-            <label>Nombre de usuario</label>
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username"
-              required
-            />
-          </div>
-          <div className="contInputRegister">
-            <label>Correo Electronico</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div className="contInputRegister">
-            <label>Contraseña</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Contraseña"
-              required
-            />
-          </div>
-          <div className="btnRegisterPrimary">
-            <button type="submit">Registrarse</button>
+          <div className="btnRestablecer">
+            <button type="submit">Restablecer</button>
           </div>
         </form>
       </div>
@@ -137,4 +100,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default ForgotPassword;

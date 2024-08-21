@@ -8,6 +8,334 @@
   src: url('../fonts/mediasans-light.otf');
 }
 
+@font-face {
+  font-family: 'Royce';
+  src: url('../fonts/Royce-Semibold.otf');
+}
+
+@font-face {
+  font-family: 'MontserratSemiBold';
+  src: url('../fonts/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratLight';
+  src: url('../fonts/Montserrat-Light.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratRegular';
+  src: url('../fonts/Montserrat-Regular.ttf');
+}
+
 body{
-  font-family: 'MediaSansExtendBold';
+  background-color:rgb(248, 248, 248);
+}
+
+.btnBackLogin{
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: 'MontserratSemiBold';
+  color: rgb(141, 140, 139);
+  transition: ease-in-out 0.5s;
+}
+
+.btnBackLogin:hover{
+  color: black;
+}
+
+.iconBack{
+  font-size: 40px;
+}
+
+.contLogin,
+.contRegister,
+.contVerifyCode{
+  width: 100%;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.contLogin .imgLogin{
+  width: 100%;
+}
+
+.contRegister .imgRegister,
+.contVerifyCode .imgRegister{
+  width: 80%;
+}
+
+.contLogin .contFormLogin,
+.contRegister .contFormRegister,
+.contVerifyCode .contFormVerifyCode{
+  width: 85%;
+
+  display: grid;
+  grid-template-rows: repeat(2,0fr);
+  grid-gap: 25px;
+  background-color:rgb(255, 255, 255);
+  padding: 50px;
+  position: relative;
+  top: 5%;
+
+  border-radius: 20px;
+  box-shadow: -4px -1px 37px -18px rgba(0,0,0,0.75);
+}
+
+.contLogin .contFormLogin .titleLogin{
+  display: grid;
+  grid-template-rows: repeat(2,0fr);
+  align-items: center;
+  justify-items: center;
+  font-family: 'MediaSansExtendendBold';
+  letter-spacing: 1px;
+}
+
+.contLogin .contFormLogin .titleLogin .imgLogo{
+  width: 18%;
+}
+
+.contRegister .contFormRegister .titleRegister,
+.contVerifyCode .contFormVerifyCode .titleVerifyCode{
+  display: grid;
+  grid-template-columns: 11% 44%;
+  align-items: center;
+  font-family: 'MediaSansExtendendBold';
+  letter-spacing: 1px;
+}
+
+.contRegister .contFormRegister .titleRegister .imgLogo,
+.contVerifyCode .contFormVerifyCode .titleVerifyCode .imgLogo{
+  width: 80%;
+}
+
+.contLogin .contFormLogin form,
+.contRegister .contFormRegister form{
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  grid-template-rows: repeat(5,0fr);
+  grid-gap: 20px;
+}
+
+.contVerifyCode .contFormVerifyCode form{
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  grid-template-rows: repeat(2,0fr);
+  grid-gap: 20px;
+}
+
+.contLogin .contFormLogin form h1,
+.contRegister .contFormRegister form h1{
+  font-family: 'MediaSansExtendendBold';
+  font-size: 50px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.contRegister .contFormRegister form h2,
+.contVerifyCode .contFormVerifyCode form h2{
+  width: 80%;
+  font-size: 20px;
+  font-family: 'MontserratLight';
+}
+
+.contLogin .contFormLogin form .contInputLogin,
+.contRegister .contFormRegister form .contInputRegister{
+  padding-top: 20px;
+  display: grid;
+  grid-template-rows: repeat(2,0fr);
+  grid-gap: 10px;
+}
+
+.contLogin .contFormLogin form .contInputLogin label,
+.contRegister .contFormRegister form .contInputRegister label{
+  font-family: 'MontserratSemiBold';
+  padding-left: 5px;
+}
+
+.contLogin .contFormLogin form .contInputLogin input,
+.contRegister .contFormRegister form .contInputRegister input{
+  width: auto;
+  padding: 14px;
+  border-radius: 12px;
+  font-family: 'MontserratSemiBold';
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(228, 228, 228);
+}
+
+.contInputPrimary{
+  width: 88%;
+  display: grid;
+  grid-template-columns: repeat(4,4fr);
+  grid-gap: 50px;
+}
+
+.contInputVerifyCode{
+  padding-top: 20px;
+}
+
+.contInputVerifyCode label{
+  font-family: 'MontserratSemiBold';
+  padding-left: 5px;
+}
+
+.contInputVerifyCode input{
+  width: 35%;
+  height: 50px;
+  padding: 14px;
+  border-radius: 12px;
+  font-family: 'MontserratSemiBold';
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(228, 228, 228);
+  text-align: center;
+  font-size: 31px;
+}
+
+.contLogin .contFormLogin form .contInputLogin input:focus,
+.contRegister .contFormRegister form .contInputRegister input:focus{
+ outline: none !important;
+}
+
+.contLogin .contFormLogin form .contInputLogin input:focus,
+.contRegister .contFormRegister form .contInputRegister input:focus{
+ outline: none !important;
+}
+
+
+.contLogin .contFormLogin form .contInputLogin .btnResetPass{
+  text-decoration: none;
+  text-align: right;
+  font-family: 'MontserratSemiBold';
+  color: rgb(141, 140, 139);
+  transition: ease-in-out;
+}
+
+.contLogin .contFormLogin form .contInputLogin .btnResetPass:hover{
+  color: tomato;
+  text-decoration: underline;
+}
+
+.contLogin .contFormLogin form .btnLoginRegister,
+.contRegister .contFormRegister form .btnRegisterPrimary{
+  padding-top: 25px;
+
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  justify-items: center;
+  grid-gap: 41px;
+}
+
+.contLogin .contFormLogin form .btnLoginRegister button,
+.contRegister .contFormRegister form .btnRegisterPrimary button{
+  width: 100%;
+  padding: 18px;
+  border-radius: 15px;
+  background-color:rgb(141, 140, 139);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'MediaSansExtendendBold';
+  letter-spacing: 1px;
+  color: white;
+  transition: ease-in 0.3s;
+}
+
+.contLogin .contFormLogin form .btnLoginRegister button:hover,
+.contRegister .contFormRegister form .btnRegisterPrimary button:hover{
+  background-color: tomato;
+}
+
+.contRegister .contFormRegister form .btnRestablecer,
+.contVerifyCode .contFormVerifyCode form .btnVerificar{
+  padding-top: 25px;
+  width: 50%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 41px;
+}
+
+.contRegister .contFormRegister form .btnRestablecer button,
+.contVerifyCode .contFormVerifyCode form .btnVerificar button{
+  width: 100%;
+  padding: 18px;
+  border-radius: 15px;
+  background-color:tomato;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'MediaSansExtendendBold';
+  letter-spacing: 1px;
+  color: white;
+}
+
+.contLogin .contFormLogin form .btnLoginRegister .bntRegister{
+  width: 89%;
+  padding: 18px;
+  border-radius: 15px;
+  border:4px solid tomato;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'MediaSansExtendendBold';
+  letter-spacing: 1px;
+  color: tomato;
+  transition: ease-in 0.3s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.contLogin .contFormLogin form .btnLoginRegister .bntRegister:hover{
+  background-color: tomato;
+  color: white;
+}
+
+.modalError{
+  width: 30%;
+  background-color: red;
+  padding: 20px;
+  color: white;
+  font-family: 'MontserratSemibold';
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+}
+
+.modalSuccess{
+  width: 30%;
+  background-color: rgb(28, 202, 13);
+  padding: 20px;
+  color: white;
+  font-family: 'MontserratSemibold';
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes wipe-in-bottom-right {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 50%);
+  }
+  to {
+    clip-path: polygon(-50% 0%, 200% 0, 0 200%, 0 -50%);
+  }
+}
+
+[transition-style="in:wipe:bottom-right"] {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-bottom-right both;
 }
