@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from "../axiosConfig";
 
 const ManagePortfolios = () => {
   const [portfolios, setPortfolios] = useState([]);
@@ -39,7 +39,7 @@ const ManagePortfolios = () => {
 
     projects.forEach((project, index) => {
       project.images.forEach((image) => {
-        formData.append(`images`, image);
+        formData.append(`file`, image);
       });
     });
 
@@ -52,7 +52,7 @@ const ManagePortfolios = () => {
           },
         });
       } else {
-        await axios.post('/api/portfolios', formData, {
+        await axios.post('/createPortfolio', formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
