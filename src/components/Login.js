@@ -34,7 +34,7 @@ const Login = () => {
     
     const token = localStorage.getItem("token");
     if (token) {
-      navigate("/contentForm");
+      navigate("/principal");
     }
 
   }, [navigate, error, success]);
@@ -44,10 +44,12 @@ const Login = () => {
 
     try {
       const response = await axios.post("/login", { email, password });
-
+      console.log(response.data);
+      
       if (response.data && response.data.token) {
         setSuccess(response.data.message);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("name", response.data.name);
         localStorage.setItem("email", email);
       } else {
         setError("Respuesta inesperada del servidor");
@@ -80,20 +82,22 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <h1>Acceso exclusivo para fotografos</h1>
           <div className="contInputLogin">
-            <label>Email:</label>
+            <label>Correo Electronico</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Correo Electronico"
               required
             />
           </div>
           <div className="contInputLogin">
-            <label>Contraseña:</label>
+            <label>Contraseña</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Contraseña"
               required
             />
           </div>

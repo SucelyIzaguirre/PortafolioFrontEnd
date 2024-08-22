@@ -1,38 +1,39 @@
 @font-face {
-  font-family: 'MediaSansExtendendBold';
-  src: url('../fonts/mediasans-bold.otf');
+  font-family: "MediaSansExtendendBold";
+  src: url("../fonts/mediasans-bold.otf");
 }
 
 @font-face {
-  font-family: 'MediaSansExtendendLight';
-  src: url('../fonts/mediasans-light.otf');
+  font-family: "MediaSansExtendendLight";
+  src: url("../fonts/mediasans-light.otf");
 }
 
 @font-face {
-  font-family: 'Royce';
-  src: url('../fonts/Royce-Semibold.otf');
+  font-family: "Royce";
+  src: url("../fonts/Royce-Semibold.otf");
 }
 
 @font-face {
-  font-family: 'MontserratSemiBold';
-  src: url('../fonts/Montserrat-SemiBold.ttf');
+  font-family: "MontserratSemiBold";
+  src: url("../fonts/Montserrat-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: 'MontserratLight';
-  src: url('../fonts/Montserrat-Light.ttf');
+  font-family: "MontserratLight";
+  src: url("../fonts/Montserrat-Light.ttf");
 }
 
 @font-face {
-  font-family: 'MontserratRegular';
-  src: url('../fonts/Montserrat-Regular.ttf');
+  font-family: "MontserratRegular";
+  src: url("../fonts/Montserrat-Regular.ttf");
 }
 
-body{
-  background-color:rgb(248, 248, 248);
+body {
+  background-color: rgb(248, 248, 248);
+  margin: 0;
 }
 
-.btnBackLogin{
+.btnBackLogin {
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -43,114 +44,114 @@ body{
   align-items: center;
   font-size: 18px;
   text-decoration: none;
-  font-family: 'MontserratSemiBold';
+  font-family: "MontserratSemiBold";
   color: rgb(141, 140, 139);
   transition: ease-in-out 0.5s;
 }
 
-.btnBackLogin:hover{
+.btnBackLogin:hover {
   color: black;
 }
 
-.iconBack{
+.iconBack {
   font-size: 40px;
 }
 
 .contLogin,
 .contRegister,
-.contVerifyCode{
+.contVerifyCode {
   width: 100%;
   height: 90vh;
   display: grid;
-  grid-template-columns: repeat(2,2fr);
+  grid-template-columns: repeat(2, 2fr);
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
 }
 
-.contLogin .imgLogin{
+.contLogin .imgLogin {
   width: 100%;
 }
 
 .contRegister .imgRegister,
-.contVerifyCode .imgRegister{
+.contVerifyCode .imgRegister {
   width: 80%;
 }
 
 .contLogin .contFormLogin,
 .contRegister .contFormRegister,
-.contVerifyCode .contFormVerifyCode{
+.contVerifyCode .contFormVerifyCode {
   width: 85%;
 
   display: grid;
-  grid-template-rows: repeat(2,0fr);
+  grid-template-rows: repeat(2, 0fr);
   grid-gap: 25px;
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   padding: 50px;
   position: relative;
   top: 5%;
 
   border-radius: 20px;
-  box-shadow: -4px -1px 37px -18px rgba(0,0,0,0.75);
+  box-shadow: -4px -1px 37px -18px rgba(0, 0, 0, 0.75);
 }
 
-.contLogin .contFormLogin .titleLogin{
+.contLogin .contFormLogin .titleLogin {
   display: grid;
-  grid-template-rows: repeat(2,0fr);
+  grid-template-rows: repeat(2, 0fr);
   align-items: center;
   justify-items: center;
-  font-family: 'MediaSansExtendendBold';
+  font-family: "MediaSansExtendendBold";
   letter-spacing: 1px;
 }
 
-.contLogin .contFormLogin .titleLogin .imgLogo{
+.contLogin .contFormLogin .titleLogin .imgLogo {
   width: 18%;
 }
 
 .contRegister .contFormRegister .titleRegister,
-.contVerifyCode .contFormVerifyCode .titleVerifyCode{
+.contVerifyCode .contFormVerifyCode .titleVerifyCode {
   display: grid;
   grid-template-columns: 11% 44%;
   align-items: center;
-  font-family: 'MediaSansExtendendBold';
+  font-family: "MediaSansExtendendBold";
   letter-spacing: 1px;
 }
 
 .contRegister .contFormRegister .titleRegister .imgLogo,
-.contVerifyCode .contFormVerifyCode .titleVerifyCode .imgLogo{
+.contVerifyCode .contFormVerifyCode .titleVerifyCode .imgLogo {
   width: 80%;
 }
 
 .contLogin .contFormLogin form,
-.contRegister .contFormRegister form{
+.contRegister .contFormRegister form {
   width: 100%;
   height: auto;
 
   display: grid;
-  grid-template-rows: repeat(5,0fr);
+  grid-template-rows: repeat(5, 0fr);
   grid-gap: 20px;
 }
 
-.contVerifyCode .contFormVerifyCode form{
+.contVerifyCode .contFormVerifyCode form {
   width: 100%;
   height: auto;
 
   display: grid;
-  grid-template-rows: repeat(2,0fr);
+  grid-template-rows: repeat(2, 0fr);
   grid-gap: 20px;
 }
 
-.contVerifyCode .contFormVerifyCode form .informationVerifyCode{
-  font-family: 'MontserratSemiBold';
+.contVerifyCode .contFormVerifyCode form .informationVerifyCode {
+  font-family: "MontserratSemiBold";
   display: grid;
-  grid-template-columns: repeat(2,2fr);
+  grid-template-columns: repeat(2, 2fr);
 }
 
-.contVerifyCode .contFormVerifyCode form .informationVerifyCode li{
+.contVerifyCode .contFormVerifyCode form .informationVerifyCode li {
   list-style: none;
 }
 
-.contVerifyCode .contFormVerifyCode form .informationVerifyCode .btnReenviar{
+.contVerifyCode .contFormVerifyCode form .informationVerifyCode .btnReenviar {
   background-color: transparent;
   text-decoration: underline;
   color: tomato;
@@ -161,66 +162,66 @@ body{
 }
 
 .contLogin .contFormLogin form h1,
-.contRegister .contFormRegister form h1{
-  font-family: 'MediaSansExtendendBold';
+.contRegister .contFormRegister form h1 {
+  font-family: "MediaSansExtendendBold";
   font-size: 50px;
   margin: 0;
   letter-spacing: 1px;
 }
 
 .contRegister .contFormRegister form h2,
-.contVerifyCode .contFormVerifyCode form h2{
+.contVerifyCode .contFormVerifyCode form h2 {
   width: 80%;
   font-size: 20px;
-  font-family: 'MontserratLight';
+  font-family: "MontserratLight";
 }
 
 .contLogin .contFormLogin form .contInputLogin,
-.contRegister .contFormRegister form .contInputRegister{
+.contRegister .contFormRegister form .contInputRegister {
   padding-top: 20px;
   display: grid;
-  grid-template-rows: repeat(2,0fr);
+  grid-template-rows: repeat(2, 0fr);
   grid-gap: 10px;
 }
 
 .contLogin .contFormLogin form .contInputLogin label,
-.contRegister .contFormRegister form .contInputRegister label{
-  font-family: 'MontserratSemiBold';
+.contRegister .contFormRegister form .contInputRegister label {
+  font-family: "MontserratSemiBold";
   padding-left: 5px;
 }
 
 .contLogin .contFormLogin form .contInputLogin input,
-.contRegister .contFormRegister form .contInputRegister input{
+.contRegister .contFormRegister form .contInputRegister input {
   width: auto;
   padding: 14px;
   border-radius: 12px;
-  font-family: 'MontserratSemiBold';
+  font-family: "MontserratSemiBold";
   background-color: rgb(243, 243, 243);
   border: 3px solid rgb(228, 228, 228);
 }
 
-.contInputPrimary{
+.contInputPrimary {
   width: 88%;
   display: grid;
-  grid-template-columns: repeat(4,4fr);
+  grid-template-columns: repeat(4, 4fr);
   grid-gap: 50px;
 }
 
-.contInputVerifyCode{
+.contInputVerifyCode {
   padding-top: 20px;
 }
 
-.contInputVerifyCode label{
-  font-family: 'MontserratSemiBold';
+.contInputVerifyCode label {
+  font-family: "MontserratSemiBold";
   padding-left: 5px;
 }
 
-.contInputVerifyCode input{
+.contInputVerifyCode input {
   width: 35%;
   height: 50px;
   padding: 14px;
   border-radius: 12px;
-  font-family: 'MontserratSemiBold';
+  font-family: "MontserratSemiBold";
   background-color: rgb(243, 243, 243);
   border: 3px solid rgb(228, 228, 228);
   text-align: center;
@@ -228,61 +229,63 @@ body{
 }
 
 .contLogin .contFormLogin form .contInputLogin input:focus,
-.contRegister .contFormRegister form .contInputRegister input:focus{
- outline: none !important;
+.contRegister .contFormRegister form .contInputRegister input:focus {
+  outline: none !important;
 }
 
 .contLogin .contFormLogin form .contInputLogin input:focus,
-.contRegister .contFormRegister form .contInputRegister input:focus{
- outline: none !important;
+.contRegister .contFormRegister form .contInputRegister input:focus {
+  outline: none !important;
 }
 
-
-.contLogin .contFormLogin form .contInputLogin .btnResetPass{
+.contLogin .contFormLogin form .contInputLogin .btnResetPass {
+  width: 26%;
   text-decoration: none;
   text-align: right;
-  font-family: 'MontserratSemiBold';
+  font-family: "MontserratSemiBold";
   color: rgb(141, 140, 139);
   transition: ease-in-out;
+  position: absolute;
+  right: 53px;
 }
 
-.contLogin .contFormLogin form .contInputLogin .btnResetPass:hover{
+.contLogin .contFormLogin form .contInputLogin .btnResetPass:hover {
   color: tomato;
   text-decoration: underline;
 }
 
 .contLogin .contFormLogin form .btnLoginRegister,
-.contRegister .contFormRegister form .btnRegisterPrimary{
+.contRegister .contFormRegister form .btnRegisterPrimary {
   padding-top: 25px;
 
   display: grid;
-  grid-template-columns: repeat(2,2fr);
+  grid-template-columns: repeat(2, 2fr);
   justify-items: center;
   grid-gap: 41px;
 }
 
 .contLogin .contFormLogin form .btnLoginRegister button,
-.contRegister .contFormRegister form .btnRegisterPrimary button{
+.contRegister .contFormRegister form .btnRegisterPrimary button {
   width: 100%;
   padding: 18px;
   border-radius: 15px;
-  background-color:rgb(141, 140, 139);
+  background-color: rgb(141, 140, 139);
   border: none;
   cursor: pointer;
   font-size: 18px;
-  font-family: 'MediaSansExtendendBold';
+  font-family: "MediaSansExtendendBold";
   letter-spacing: 1px;
   color: white;
   transition: ease-in 0.3s;
 }
 
 .contLogin .contFormLogin form .btnLoginRegister button:hover,
-.contRegister .contFormRegister form .btnRegisterPrimary button:hover{
+.contRegister .contFormRegister form .btnRegisterPrimary button:hover {
   background-color: tomato;
 }
 
 .contRegister .contFormRegister form .btnRestablecer,
-.contVerifyCode .contFormVerifyCode form .btnVerificar{
+.contVerifyCode .contFormVerifyCode form .btnVerificar {
   padding-top: 25px;
   width: 50%;
   display: grid;
@@ -292,27 +295,27 @@ body{
 }
 
 .contRegister .contFormRegister form .btnRestablecer button,
-.contVerifyCode .contFormVerifyCode form .btnVerificar button{
+.contVerifyCode .contFormVerifyCode form .btnVerificar button {
   width: 100%;
   padding: 18px;
   border-radius: 15px;
-  background-color:tomato;
+  background-color: tomato;
   border: none;
   cursor: pointer;
   font-size: 18px;
-  font-family: 'MediaSansExtendendBold';
+  font-family: "MediaSansExtendendBold";
   letter-spacing: 1px;
   color: white;
 }
 
-.contLogin .contFormLogin form .btnLoginRegister .bntRegister{
+.contLogin .contFormLogin form .btnLoginRegister .bntRegister {
   width: 89%;
   padding: 18px;
   border-radius: 15px;
-  border:4px solid tomato;
+  border: 4px solid tomato;
   cursor: pointer;
   font-size: 18px;
-  font-family: 'MediaSansExtendendBold';
+  font-family: "MediaSansExtendendBold";
   letter-spacing: 1px;
   color: tomato;
   transition: ease-in 0.3s;
@@ -320,29 +323,625 @@ body{
   text-align: center;
 }
 
-.contLogin .contFormLogin form .btnLoginRegister .bntRegister:hover{
+.contLogin .contFormLogin form .btnLoginRegister .bntRegister:hover {
   background-color: tomato;
   color: white;
 }
 
-.modalError{
+.modalError {
   width: 30%;
   background-color: red;
   padding: 20px;
   color: white;
-  font-family: 'MontserratSemibold';
+  font-family: "MontserratSemibold";
   border-radius: 15px;
   position: absolute;
   top: 0;
 }
 
-.modalSuccess{
+.modalSuccess {
   width: 30%;
   background-color: rgb(28, 202, 13);
   padding: 20px;
   color: white;
-  font-family: 'MontserratSemibold';
+  font-family: "MontserratSemibold";
   border-radius: 15px;
   position: absolute;
   top: 0;
 }
+
+/* PAGINA PRINCIPAL DESPUES DE LOGIN */
+.contPrincipal {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+}
+
+.contPrincipal .contPresentation {
+  height: 91.3vh;
+  display: grid;
+  grid-template-rows: repeat(4, 0fr);
+  grid-gap: 80px;
+  justify-items: center;
+  align-items: center;
+}
+
+.contPrincipal .contPresentation h1 {
+  font-family: "MontserratSemibold";
+}
+
+.contPrincipal .contPresentation .titlePhotographer {
+  font-size: 150px;
+  display: grid;
+}
+
+.contPrincipal .contPresentation .titlePhotographer .webdesignertitle,
+.contPrincipal .contPresentation .titlePhotographer .phototitle {
+  font-family: "MediaSansExtendendBold";
+  margin: 0;
+  text-align: center;
+  position: relative;
+  transition: ease-in-out;
+}
+
+.contPrincipal .contPresentation .titlePhotographer .webdesignertitle:hover,
+.contPrincipal .contPresentation .titlePhotographer .phototitle:hover {
+  position: relative;
+  z-index: 2;
+  color: tomato;
+}
+
+.contPrincipal .contPresentation .imgPrincipal {
+  position: absolute;
+  top: 22%;
+  z-index: 1;
+  width: 23%;
+}
+
+.contPrincipal .contPresentation .btnPrincipal {
+  width: 100%;
+  height: 14vh;
+  background: linear-gradient(
+    0deg,
+    rgba(238, 238, 238, 1) 44%,
+    rgba(255, 255, 255, 0) 94%
+  );
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  grid-gap: 60px;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.contPrincipal .contPresentation .btnPrincipal .btnCreatePort {
+  width: 270px;
+  height: 65px;
+  padding: 17px;
+  background-color: black;
+  border: none;
+  color: white;
+  font-family: "MontserratSemibold";
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contPrincipal .contPresentation .btnPrincipal .btnCreatePort:hover,
+.contPrincipal .contPresentation .btnPrincipal .btnCrearTesti:hover {
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.contPrincipal .contPresentation .btnPrincipal .btnCrearTesti {
+  width: 270px;
+  height: 65px;
+  padding: 18px;
+  background-color: transparent;
+  border: 3px solid black;
+  color: black;
+  font-family: "MontserratSemibold";
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contTestimonios {
+  width: 100%;
+  height: 50vh;
+  padding-top: 3%;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  padding-bottom: 5%;
+}
+
+.contTestimonios .titleTestimonio {
+  font-size: 65px;
+  font-family: "MediaSansExtendendBold";
+  text-decoration: line-through;
+  text-decoration-color: tomato; /* Color del tachado */
+  text-decoration-thickness: 7px; /* Grosor del tachado */
+  text-decoration-style: solid; /* Estilo del tachado: solid, wavy, dotted, etc. */
+}
+
+.testimonial-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 30px 30px 30px;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.quote-icon {
+  font-size: 100px;
+  color: #4a90e2;
+  position: absolute;
+}
+
+.top-quote {
+  top: -30px;
+  left: -30px;
+}
+
+.bottom-quote {
+  bottom: -30px;
+  right: -30px;
+}
+
+.testimonial-text {
+  font-size: 18px;
+  color: #333;
+  margin: 40px 20px;
+  line-height: 1.6;
+  font-family: "MontserratSemibold";
+  text-transform: capitalize;
+  white-space: nowrap; /* Evita que el texto se desborde en múltiples líneas */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Agrega '...' al final del texto truncado */
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.author-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.author-details {
+  text-align: left;
+}
+
+.author-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.author-title {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+}
+
+/* CAROUSEL */
+.carousel-container {
+  width: 100%;
+  max-width: 740px;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-content {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+.TitleNoTestimonio {
+  width: 30%;
+  padding: 50px;
+  font-size: 40px;
+  font-family: "MontserratSemibold";
+  background-color: #e6e6e6;
+  border-radius: 15px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  color: gray;
+}
+
+.TitleNoTestimonio .iconError {
+  font-size: 85px;
+}
+
+/* PAGINA PRINCIPAL DESPUES DE LOGIN */
+
+/* Navbar */
+
+.contNav {
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  justify-items: self-end;
+  align-items: center;
+}
+
+.contNav .contLogoName {
+  width: 98%;
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  grid-gap: 20px;
+}
+
+.contNav .contLogoName .imgLogoNavBar {
+  width: 60px;
+}
+
+.contNav .contLogoName h3 {
+  font-size: 20px;
+  font-family: "MontserratSemibold";
+}
+
+.contNav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  grid-gap: 120px;
+  justify-items: self-end;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.contNav ul li {
+  list-style: none;
+}
+
+.contNav ul li .link {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-family: "MontserratSemibold";
+  text-transform: uppercase;
+  overflow: hidden; /* Asegura que el pseudo-elemento no desborde el enlace */
+  display: inline-block; /* Necesario para que el pseudo-elemento se posicione correctamente */
+}
+
+.contNav ul li .link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px; /* Grosor de la línea */
+  background-color: tomato; /* Color de la línea */
+  transition: left 0.3s ease;
+}
+
+.contNav ul li .link:hover::after {
+  left: 0;
+}
+
+.contNav ul li .btnLogout {
+  padding: 10px;
+  background-color: #cfcfcf;
+  border: none;
+  font-family: "MontserratSemibold";
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
+
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.iconLogout {
+  font-size: 25px;
+}
+
+/* Navbar */
+
+/* MODAL */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 317px;
+  border-radius: 25px;
+  position: relative;
+  max-width: 362px;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 50px;
+  cursor: pointer;
+  font-family: "MontserratSemibold";
+}
+/* MODAL */
+
+/* TESTIMONIO FORM */
+
+.contTestimonioView {
+  margin: 0;
+  position: absolute;
+  top: 28px;
+  left: 0px;
+  width: 80%;
+}
+
+.contTestimonioView .contFormTestimonio {
+  display: grid;
+  grid-template-rows: repeat(2, 0fr);
+  grid-gap: 20px;
+}
+
+.contTestimonioView .contFormTestimonio .titleTestimonio {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 50%;
+  grid-gap: 40px;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.contTestimonioView .contFormTestimonio .titleTestimonio h2 {
+  font-family: "MediaSansExtendendBold";
+  letter-spacing: 1px;
+}
+
+.contTestimonioView .contFormTestimonio .titleTestimonio .imgLogoTestimonio {
+  width: 70px;
+}
+
+.contTestimonioView form {
+  width: 100%;
+  padding-left: 50px;
+  padding-top: 10px;
+
+  display: grid;
+  grid-template-rows: repeat(4, 0fr);
+  grid-gap: 20px;
+}
+
+.contTestimonioView form h1 {
+  margin: 0;
+  font-family: "MediaSansExtendendBold" !important;
+  letter-spacing: 1px;
+}
+
+.contTestimonioView form .contInputTestimonioForm {
+  padding-top: 20px;
+  display: grid;
+  grid-template-rows: repeat(2, 0fr);
+  grid-gap: 10px;
+}
+
+.contTestimonioView form .contInputTestimonioForm label {
+  font-family: "MontserratSemiBold";
+  padding-left: 5px;
+}
+
+.contTestimonioView form .contInputTestimonioForm input {
+  width: auto;
+  padding: 14px;
+  border-radius: 12px;
+  font-family: "MontserratSemiBold";
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(228, 228, 228);
+}
+
+.contTestimonioView form .contInputTestimonioForm textarea {
+  width: 100%;
+  height: 150px; /* Ajusta la altura según tus necesidades */
+  resize: none; /* Evita que el usuario pueda cambiar el tamaño */
+  padding: 10px;
+  border-radius: 12px;
+  font-family: "MontserratSemiBold";
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(228, 228, 228);
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.contTestimonioView form .btnTestimonioSend{
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: rgb(182, 182, 182);
+  color: white;
+  font-size: 20px;
+  font-family: 'MontserratSemiBold';
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: ease-in-out 0.5s;
+}
+
+.contTestimonioView form .btnTestimonioSend:hover{
+  background-color: rgb(136, 136, 136);
+}
+
+/* TESTIMONIO FORM */
+
+/* MANAGEMENT TESTIMONIO */
+.contGestionarTesti{
+  padding: 40px;
+}
+
+.contGestionarTesti .titleCreateTesti{
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  justify-items:flex-end;
+  align-items: center;
+}
+
+.contGestionarTesti .titleCreateTesti .btnCrearTesti{
+  width: 24%;
+  background-color: tomato;
+  border-radius: 10px;
+  font-family: 'MontserratSemibold';
+
+  display: grid;
+  grid-template-columns: 12% 88%;
+}
+
+.iconCrearTesti{
+  font-size: 20px;
+}
+
+.contGestionarTesti .titleCreateTesti h1{
+  width: 100%;
+  font-family: 'MediaSansExtendendBold';
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+table, th, td {
+  border: none;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #868686;
+  color: white;
+  font-family: 'MontserratSemibold';
+}
+
+tr td{
+  font-family: 'MontserratRegular';
+}
+
+.th1{
+  border-radius: 15px 0 0 15px;
+}
+
+.th2{
+  border-radius: 0 15px 15px 0;
+}
+
+tr:hover td {
+  background-color: #e2e2e2;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px; /* Ajusta el tamaño según sea necesario */
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+/* styles.css */
+.iconDropdown{
+  color: #868686;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #868686;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  right: -24px;
+  top: -12px;
+  background-color: #e2e2e2;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  padding: 8px 15px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.dropdown-menu button:hover {
+  background-color: #919191;
+  color: white;
+}
+
+.inputEditTestimonio{
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: 'MontserratSemibold';
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(228, 228, 228);
+}
+
+.inputEditTestimonio:focus{
+  outline: none;
+}
+/* MANAGEMENT TESTIMONIO */
