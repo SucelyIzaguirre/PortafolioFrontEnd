@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "../axiosConfig";
-import { FaCirclePlus } from 'react-icons/fa6';
-import Modal from './modal';
+import { FaCirclePlus } from "react-icons/fa6";
+import Modal from "./modal";
 
 const ManagePortfolios = () => {
   const [portfolios, setPortfolios] = useState([]);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [projects, setProjects] = useState([{ title: '', description: '', images: [] }]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [projects, setProjects] = useState([
+    { title: "", description: "", images: [] },
+  ]);
   const [editingPortfolio, setEditingPortfolio] = useState(null);
 
   useEffect(() => {
@@ -17,15 +19,15 @@ const ManagePortfolios = () => {
   // Obtener los portafolios del usuario
   const fetchPortfolios = async () => {
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.get('/portfolios/user', {
+      const token = localStorage.getItem("token");
+      const response = await axios.get("/portfolios/user", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setPortfolios(response.data);
     } catch (err) {
-      console.error('Error al obtener los portafolios', err);
+      console.error("Error al obtener los portafolios", err);
     }
   };
 
@@ -33,38 +35,42 @@ const ManagePortfolios = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('projects', JSON.stringify(projects));
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("projects", JSON.stringify(projects));
 
     projects.forEach((project, index) => {
       project.images.forEach((image) => {
-        formData.append('file', image);
+        formData.append("file", image);
       });
     });
 
     try {
       if (editingPortfolio) {
-        await axios.put(`/updatePortafolios/${editingPortfolio._id}`, formData, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+        await axios.put(
+          `/updatePortafolios/${editingPortfolio._id}`,
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
       } else {
-        await axios.post('/createPortfolio', formData, {
+        await axios.post("/createPortfolio", formData, {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
           },
         });
       }
       fetchPortfolios();
       resetForm();
     } catch (err) {
-      console.error('Error al guardar el portafolio', err);
+      console.error("Error al guardar el portafolio", err);
     }
   };
 
@@ -72,13 +78,15 @@ const ManagePortfolios = () => {
     const files = [...e.target.files];
     setProjects((prevProjects) =>
       prevProjects.map((project, index) =>
-        index === projectIndex ? { ...project, images: [...project.images, ...files] } : project
+        index === projectIndex
+          ? { ...project, images: [...project.images, ...files] }
+          : project
       )
     );
   };
 
   const addProject = () => {
-    setProjects([...projects, { title: '', description: '', images: [] }]);
+    setProjects([...projects, { title: "", description: "", images: [] }]);
   };
 
   const handleProjectChange = (index, field, value) => {
@@ -90,16 +98,16 @@ const ManagePortfolios = () => {
   };
 
   const resetForm = () => {
-    setTitle('');
-    setDescription('');
-    setProjects([{ title: '', description: '', images: [] }]);
+    setTitle("");
+    setDescription("");
+    setProjects([{ title: "", description: "", images: [] }]);
     setEditingPortfolio(null);
   };
 
   // Eliminar un portafolio
   const handleDelete = async (id) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       await axios.delete(`/deletePortfolios/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -107,7 +115,7 @@ const ManagePortfolios = () => {
       });
       fetchPortfolios();
     } catch (err) {
-      console.error('Error al eliminar el portafolio', err);
+      console.error("Error al eliminar el portafolio", err);
     }
   };
 
@@ -120,20 +128,22 @@ const ManagePortfolios = () => {
   };
 
   return (
-    <div className='contGestionPortafolio'>
-        <div className="titleCreateTesti">
+    <div className="contGestionPortafolio">
+      <div className="titleCreatePorta">
         <h1>Gestionar Portafolios</h1>
-        <button onClick={addProject} className="btnCrearTesti">
-        <FaCirclePlus className="iconCrearTesti" />
-          Añadir Proyecto
-        </button>
+        <div>
+          <button onClick={addProject} className="btnCrearTesti">
+            <FaCirclePlus className="iconCrearTesti" />
+            Añadir Proyecto
+          </button>
 
-        <button onClick={addProject} className="btnCrearTesti">
-        {editingPortfolio ? 'Actualizar Portafolio' : 'Crear Portafolio'}
-        </button>
+          <button onClick={addProject} className="btnCrearTesti">
+            {editingPortfolio ? "Actualizar Portafolio" : "Crear Portafolio"}
+          </button>
+        </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className='contInputPortafolio'>
+        <div className="contInputPortafolio">
           <label>Título del Portafolio:</label>
           <input
             type="text"
@@ -142,7 +152,7 @@ const ManagePortfolios = () => {
             required
           />
         </div>
-        <div className='contInputPortafolio'>
+        <div className="contInputPortafolio">
           <label>Descripción del Portafolio:</label>
           <textarea
             value={description}
@@ -151,26 +161,30 @@ const ManagePortfolios = () => {
           />
         </div>
         {projects.map((project, index) => (
-          <div key={index} className='contGestionPortafolio'>
+          <div key={index} className="contGestionPortafolio">
             <h3>Proyecto {index + 1}</h3>
-            <div className='contInputPortafolio'>
+            <div className="contInputPortafolio">
               <label>Título del Proyecto:</label>
               <input
                 type="text"
                 value={project.title}
-                onChange={(e) => handleProjectChange(index, 'title', e.target.value)}
+                onChange={(e) =>
+                  handleProjectChange(index, "title", e.target.value)
+                }
                 required
               />
             </div>
-            <div className='contInputPortafolio'>
+            <div className="contInputPortafolio">
               <label>Descripción del Proyecto:</label>
               <textarea
                 value={project.description}
-                onChange={(e) => handleProjectChange(index, 'description', e.target.value)}
+                onChange={(e) =>
+                  handleProjectChange(index, "description", e.target.value)
+                }
                 required
               />
             </div>
-            <div className='contInputPortafolio'>
+            <div className="contInputPortafolio">
               <label>Imágenes del Proyecto:</label>
               <input
                 type="file"
@@ -184,7 +198,7 @@ const ManagePortfolios = () => {
                     key={imgIndex}
                     src={URL.createObjectURL(imgFile)}
                     alt={`preview-${imgIndex}`}
-                    style={{ width: '100px' }}
+                    style={{ width: "100px" }}
                   />
                 ))}
               </div>
@@ -192,10 +206,12 @@ const ManagePortfolios = () => {
           </div>
         ))}
 
-        <button type="button" onClick={addProject}>Añadir Proyecto</button>
+        <button type="button" onClick={addProject}>
+          Añadir Proyecto
+        </button>
 
         <button type="submit">
-          {editingPortfolio ? 'Actualizar Portafolio' : 'Crear Portafolio'}
+          {editingPortfolio ? "Actualizar Portafolio" : "Crear Portafolio"}
         </button>
       </form>
 
@@ -215,14 +231,24 @@ const ManagePortfolios = () => {
                       key={imgIndex}
                       src={img}
                       alt={`portfolio-img-${imgIndex}`}
-                      style={{ width: '100px' }}
+                      style={{ width: "100px" }}
                     />
                   ))}
                 </div>
               </div>
             ))}
-            <button className='btnEditarPorta' onClick={() => handleEdit(portfolio)}>Editar</button>
-            <button className='btnDeletePorta' onClick={() => handleDelete(portfolio._id)}>Eliminar</button>
+            <button
+              className="btnEditarPorta"
+              onClick={() => handleEdit(portfolio)}
+            >
+              Editar
+            </button>
+            <button
+              className="btnDeletePorta"
+              onClick={() => handleDelete(portfolio._id)}
+            >
+              Eliminar
+            </button>
           </li>
         ))}
       </ul>
