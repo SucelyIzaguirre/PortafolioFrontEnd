@@ -987,17 +987,109 @@ button {
   box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
+.contGestionPortafolio .contDiviPortafolio{
+  width: 98%;
+  display: grid;
+  grid-template-rows: repeat(2,2fr);
+  grid-gap: 20px;
+}
+
+.contGestionPortafolio .contDiviPortafolio form{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-gap: 50px;
+}
+
+.contCreatPortafolio{
+  width: 100%;
+  background-color:#ececec;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.contProjectos{
+  width: 100%;
+  background-color:#ececec;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.contButtonPortafolio{
+  position: absolute;
+  top: 17%;
+  right: 2%;
+  display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 10px;
+    width: 20%;
+    justify-items: center;
+    align-items: center;
+}
+
+.btnAddProject{
+  background-color: tomato;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 15% 95%;
+    font-family: "MontserratSemiBold";
+    width: 100%;
+}
+
+.btnAddUpdatePorta{
+  background-color: green;
+  font-family: "MontserratSemiBold";
+  border-radius: 15px;
+}
+
+.contDiviProject{
+  padding: 30px;
+}
+
+.contDiviProject h2{
+  font-family: 'MediaSansExtendendBold';
+  letter-spacing: 1px;
+}
+
+/* styles.css */
+.hiddenInput {
+  display: none;
+}
+
+.customFileButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.customFileButton:hover {
+  background-color: #0056b3;
+}
+
+.imagePreviewContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.imagePreview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+
 .btnEditarPorta,
 .btnDeletePorta{
   border-radius: 15px;
   background-color: #868686;
 }
 
-
-.contGestionPortafolio .titleCreatePorta{
-  display: grid;
-  grid-template-columns: repeat(2,2fr);
-  justify-items:flex-end;
-  align-items: center;
-}
 /* MANAGEMENT PORTAFOLIO */

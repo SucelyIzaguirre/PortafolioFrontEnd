@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PrincipalIMG from "../assets/images/principal.png";
 import Carousel from "./Carousel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "./modal";
 import TestimonialForm from "./TestimonialForm";
 
 const Principal = () => {
   const [name, setName] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     setName(localStorage.getItem("name"));
@@ -15,6 +16,10 @@ const Principal = () => {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
+  };
+
+  const handleNavigatePorta = () => {
+    navigate('/managePortfolio')
   };
 
   const handleCloseModal = () => {
@@ -35,7 +40,7 @@ const Principal = () => {
           alt="No se encontro la imagen"
         />
         <div className="btnPrincipal">
-          <button className="btnCreatePort">Crear Portafolio</button>
+          <button onClick={handleNavigatePorta} className="btnCreatePort">Crear Portafolio</button>
           <button onClick={handleOpenModal} className="btnCrearTesti">
             Crear Testimonio
           </button>
