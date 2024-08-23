@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../axiosConfig";
+import { FaCirclePlus } from 'react-icons/fa6';
+import Modal from './modal';
 
 const ManagePortfolios = () => {
   const [portfolios, setPortfolios] = useState([]);
@@ -39,13 +41,13 @@ const ManagePortfolios = () => {
 
     projects.forEach((project, index) => {
       project.images.forEach((image) => {
-        formData.append(`file`, image);
+        formData.append('file', image);
       });
     });
 
     try {
       if (editingPortfolio) {
-        await axios.put(`/api/portfolios/${editingPortfolio._id}`, formData, {
+        await axios.put(`/updatePortafolios/${editingPortfolio._id}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
@@ -94,26 +96,44 @@ const ManagePortfolios = () => {
     setEditingPortfolio(null);
   };
 
-    // Eliminar un portafolio
-    const handleDelete = async (id) => {
-      try {
-        const token = localStorage.getItem('token');
-        await axios.delete(`/api/portfolios/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        fetchPortfolios();
-      } catch (err) {
-        console.error('Error al eliminar el portafolio', err);
-      }
-    };
+  // Eliminar un portafolio
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      await axios.delete(`/deletePortfolios/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      fetchPortfolios();
+    } catch (err) {
+      console.error('Error al eliminar el portafolio', err);
+    }
+  };
+
+  // Seleccionar un portafolio para editar
+  const handleEdit = (portfolio) => {
+    setTitle(portfolio.title);
+    setDescription(portfolio.description);
+    setProjects(portfolio.projects);
+    setEditingPortfolio(portfolio);
+  };
 
   return (
-    <div>
-      <h1>Gestionar Portafolios</h1>
+    <div className='contGestionPortafolio'>
+        <div className="titleCreateTesti">
+        <h1>Gestionar Portafolios</h1>
+        <button onClick={addProject} className="btnCrearTesti">
+        <FaCirclePlus className="iconCrearTesti" />
+          Añadir Proyecto
+        </button>
+
+        <button onClick={addProject} className="btnCrearTesti">
+        {editingPortfolio ? 'Actualizar Portafolio' : 'Crear Portafolio'}
+        </button>
+      </div>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='contInputPortafolio'>
           <label>Título del Portafolio:</label>
           <input
             type="text"
@@ -122,7 +142,7 @@ const ManagePortfolios = () => {
             required
           />
         </div>
-        <div>
+        <div className='contInputPortafolio'>
           <label>Descripción del Portafolio:</label>
           <textarea
             value={description}
@@ -130,11 +150,10 @@ const ManagePortfolios = () => {
             required
           />
         </div>
-
         {projects.map((project, index) => (
-          <div key={index}>
+          <div key={index} className='contGestionPortafolio'>
             <h3>Proyecto {index + 1}</h3>
-            <div>
+            <div className='contInputPortafolio'>
               <label>Título del Proyecto:</label>
               <input
                 type="text"
@@ -143,7 +162,7 @@ const ManagePortfolios = () => {
                 required
               />
             </div>
-            <div>
+            <div className='contInputPortafolio'>
               <label>Descripción del Proyecto:</label>
               <textarea
                 value={project.description}
@@ -151,7 +170,7 @@ const ManagePortfolios = () => {
                 required
               />
             </div>
-            <div>
+            <div className='contInputPortafolio'>
               <label>Imágenes del Proyecto:</label>
               <input
                 type="file"
@@ -202,8 +221,8 @@ const ManagePortfolios = () => {
                 </div>
               </div>
             ))}
-            <button onClick={() => setEditingPortfolio(portfolio)}>Editar</button>
-            <button onClick={() => handleDelete(portfolio._id)}>Eliminar</button>
+            <button className='btnEditarPorta' onClick={() => handleEdit(portfolio)}>Editar</button>
+            <button className='btnDeletePorta' onClick={() => handleDelete(portfolio._id)}>Eliminar</button>
           </li>
         ))}
       </ul>
